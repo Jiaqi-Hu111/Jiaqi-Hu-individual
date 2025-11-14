@@ -29,6 +29,11 @@ function draw() {
   background(0, 25);
 
   for (let ring of rings){
+    
+    let time = millis() * 0.001
+    let sway = sin(time * 2 + ring.shift) * 1.2;
+    ring.x += sway;
+
     // Fall progress t (0-1) : Used to control the scaling and fading of halos
     // The circular figure starts from the top of the canvas and approaches 1 after passing through it
     const t = constrain((ring.y + ring.r) / (height + ring.r * 2), 0, 1);
