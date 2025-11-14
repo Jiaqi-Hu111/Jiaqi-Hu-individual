@@ -45,7 +45,7 @@ function draw() {
     ring.alphaPulse = map(
       sin(frameCount * 0.02 + ring.shift),
       -1, 1, 80, 170
-    )
+    );
 
     // Draw halos
     drawAura(ring, t, currentR);
@@ -82,7 +82,7 @@ function drawAura(ring, t, currentR) {
 
   noStroke();
   fill(red(c), green(c), blue(c), alpha);
-  circle(0, 0, rr * 2);
+  circle(ring.x, ring.y, rr * 2);
 }
 
 //Control the drop and reset of the circular graphic
@@ -139,6 +139,8 @@ function generateLayout(){
       random(pool)
     ];
      rings.push({ x, y, r, palette, style: 'spokes', vy,
+
+      //
       shift: random(1000),
       angle: random(TWO_PI),
       angleSpeed: random(0.005, 0.2)
@@ -159,6 +161,7 @@ function generateLayout(){
       random(pool)
     ];
     rings.push({ x, y, r, palette, style: 'dots', vy,
+      
       shift: random(1000),
       angle: random(TWO_PI),
       angleSpeed: random(0.005, 0.2)
